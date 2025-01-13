@@ -9,14 +9,12 @@ interface PortfolioLink {
   icon: string;
 }
 
-interface ProjectsProps {
-  fullText: string;
-}
-
-export default function Projects({ fullText }: ProjectsProps) {
+/////// 제거: interface ProjectsProps와 fullText 관련 코드 ///////
+export default function Projects() {
+  // fullText props 제거
   const [isLoading, setIsLoading] = useState(true);
   const [portfolioLinks, setPortfolioLinks] = useState<PortfolioLink[]>([]);
-  const [text, setText] = useState('');
+  /////// 제거: text state와 useEffect ///////
 
   useEffect(() => {
     async function fetchPortfolios() {
@@ -37,20 +35,7 @@ export default function Projects({ fullText }: ProjectsProps) {
     fetchPortfolios();
   }, []);
 
-  useEffect(() => {
-    let index = 0;
-
-    const interval = setInterval(() => {
-      if (index < fullText.length) {
-        setText((prev) => prev + fullText[index]);
-        index++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 40);
-
-    return () => clearInterval(interval);
-  }, [fullText]);
+  /////// 제거: 두 번째 useEffect 전체 ///////
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -89,18 +74,43 @@ export default function Projects({ fullText }: ProjectsProps) {
               <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                 Jonathan Park
               </h1>
+              {/* /////// 수정: motion.p 내용 변경 /////// */}
               <motion.p
-                variants={{
-                  hidden: { opacity: 0, x: -20 },
-                  show: { opacity: 1, x: 0 },
+                initial={{ opacity: 0, y: 20 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.8,
+                    ease: 'easeOut',
+                  },
                 }}
-                className="mt-4 text-lg text-gray-300 p-6 rounded-lg bg-gradient-to-r from-purple-500/10 to-pink-500/10 backdrop-blur-sm"
+                className="mt-4 text-lg text-gray-300 p-6 rounded-lg 
+                  bg-gradient-to-r from-purple-500/10 to-pink-500/10 
+                  backdrop-blur-sm
+                  border border-purple-500/20
+                  shadow-lg shadow-purple-500/10"
               >
-                {text ||
-                  "Welcome to Jonathan Park's Portfolio Page! Explore my Excel Reports, Dashboards, and learn more about me. If you like my projects, feel free to reach out or click 'View All Projects' to see more. I'd love to hear from you! Click 'Start' to begin the tour."}
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 1 }}
+                  className="bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text"
+                >
+                  👋 Kia ora,
+                </motion.span>{' '}
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.8, duration: 1 }}
+                >
+                  Welcome to my portfolios where I showcase my journey in data
+                  analysis and web development. I love being creative and blend
+                  analysis and technicality with beautiful designs and bring
+                  unique yet eye capturing experiences.
+                </motion.span>
               </motion.p>
             </section>
-
             <motion.section
               className="flex flex-wrap justify-start gap-6"
               variants={containerVariants}
