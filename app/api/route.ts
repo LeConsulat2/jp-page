@@ -8,6 +8,12 @@ export async function GET() {
       icon: '📊',
     },
     {
+      title:
+        'SQL Project- Students Timetable Clashes Normalisation & my thought process',
+      url: 'https://www.notion.so/SQL-Project-Students-Database-Normalisations-17a0e5ce0cfb808bafdce37376fad8f4?pvs=4',
+      icon: '💻',
+    },
+    {
       title: 'Finance Dashboard (MyBank)',
       url: 'https://onedrive.live.com/personal/d35bd98c5fb12bf6/_layouts/15/Doc.aspx?resid=D35BD98C5FB12BF6!sc35c4a88d75b4e9481173edf9774f3e3&cid=d35bd98c5fb12bf6&migratedtospo=true&app=Excel',
       icon: '💹',
@@ -27,12 +33,7 @@ export async function GET() {
       url: 'https://onedrive.live.com/personal/d35bd98c5fb12bf6/_layouts/15/Doc.aspx?resid=D35BD98C5FB12BF6!s2c7e4b5207e84b858d4453821b77fea3&cid=d35bd98c5fb12bf6&migratedtospo=true&app=Excel',
       icon: '🌍',
     },
-    {
-      title:
-        'SQL Project- Students Timetable Clashes Normalisation & my thought process',
-      url: 'https://www.notion.so/SQL-Project-Students-Database-Normalisations-17a0e5ce0cfb808bafdce37376fad8f4?pvs=4',
-      icon: '💻',
-    },
+
     {
       title: 'View All Projects including HTML & CSS works',
       url: 'https://jp-personal.my.canva.site/',
