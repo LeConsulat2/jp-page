@@ -22,7 +22,7 @@ export default function Home() {
       } else {
         clearInterval(interval);
       }
-    }, 40); // Adjust speed here (lower = faster)
+    }, 35); // Adjust speed here (lower = faster)
 
     return () => clearInterval(interval);
   }, [fullText]);
