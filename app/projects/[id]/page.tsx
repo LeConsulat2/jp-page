@@ -104,13 +104,13 @@ export default function Projects() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.8, duration: 1 }}
                 >
-                  Welcome to my portfolios! Here, I showcase my data analysis
-                  exaples, blending creativity, technicality , and beauty . I
-                  thrive on prioritizing accuracy and delivering insightful
-                  reports, while also capturing creativity and beauty to ensure
-                  my charts and reports not only inform but also engage. My goal
-                  is to create visuals that capture the audience’s attention and
-                  help them fully understand the story behind the data.
+                  Welcome again to my portfolios! Here, I showcase my data
+                  analysis examples. I believe in maintaining accurate and
+                  correct way of data to prepare insightful reports. Along with
+                  this, I also like to stay creative and not lose the beauty to
+                  ensure my charts and reports. My goal is to create visuals
+                  that capture the audience’s attention and help them fully
+                  understand the story behind the data.
                 </motion.span>
               </motion.p>
             </section>
