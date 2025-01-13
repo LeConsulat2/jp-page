@@ -104,10 +104,13 @@ export default function Projects() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.8, duration: 1 }}
                 >
-                  Welcome to my portfolios where I showcase my journey in data
-                  analysis and web development. I love being creative and blend
-                  analysis and technicality with beautiful designs and bring
-                  unique yet eye capturing experiences.
+                  Welcome to my portfolios! Here, I showcase my data analysis
+                  exaples, blending creativity, technicality , and beauty . I
+                  thrive on prioritizing accuracy and delivering insightful
+                  reports, while also capturing creativity and beauty to ensure
+                  my charts and reports not only inform but also engage. My goal
+                  is to create visuals that capture the audience’s attention and
+                  help them fully understand the story behind the data.
                 </motion.span>
               </motion.p>
             </section>
