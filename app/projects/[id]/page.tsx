@@ -9,9 +9,12 @@ interface PortfolioLink {
   icon: string;
 }
 
+/////// 제거: interface ProjectsProps와 fullText 관련 코드 ///////
 export default function Projects() {
+  // fullText props 제거
   const [isLoading, setIsLoading] = useState(true);
   const [portfolioLinks, setPortfolioLinks] = useState<PortfolioLink[]>([]);
+  /////// 제거: text state와 useEffect ///////
 
   useEffect(() => {
     async function fetchPortfolios() {
@@ -31,6 +34,8 @@ export default function Projects() {
     }
     fetchPortfolios();
   }, []);
+
+  /////// 제거: 두 번째 useEffect 전체 ///////
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -69,6 +74,7 @@ export default function Projects() {
               <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                 Jonathan Park
               </h1>
+              {/* /////// 수정: motion.p 내용 변경 /////// */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{
@@ -98,14 +104,16 @@ export default function Projects() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.8, duration: 1 }}
                 >
-                  Welcome to my portfolios where I showcase my journey in data
-                  analysis and web development. I love being creative and blend
-                  analysis and technicality with beautiful designs and bring
-                  unique yet eye capturing experiences.
+                  Welcome to my portfolios! Here, I showcase my data analysis
+                  exaples, blending creativity, technicality , and beauty . I
+                  thrive on prioritizing accuracy and delivering insightful
+                  reports, while also capturing creativity and beauty to ensure
+                  my charts and reports not only inform but also engage. My goal
+                  is to create visuals that capture the audience’s attention and
+                  help them fully understand the story behind the data.
                 </motion.span>
               </motion.p>
             </section>
-
             <motion.section
               className="flex flex-wrap justify-start gap-6"
               variants={containerVariants}

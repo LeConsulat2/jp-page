@@ -1,146 +1,55 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
-interface PortfolioLink {
-  title: string;
-  url: string;
-  icon: string;
-}
+export default function Home() {
+  const [text, setText] = useState('');
 
-/////// 제거: interface ProjectsProps와 fullText 관련 코드 ///////
-export default function Projects() {
-  // fullText props 제거
-  const [isLoading, setIsLoading] = useState(true);
-  const [portfolioLinks, setPortfolioLinks] = useState<PortfolioLink[]>([]);
-  /////// 제거: text state와 useEffect ///////
-
+  const fullText = `
+    Welcome to Jonathan Park's Portfolio Page! 
+    Explore my Excel Reports, Dashboards, and learn more about me. 
+    If you like my projects, feel free to reach out or click "View All Projects" to see more. 
+    I’d love to hear from you! Click "Start" to begin the tour.
+  `;
   useEffect(() => {
-    async function fetchPortfolios() {
-      try {
-        setIsLoading(true);
-        const response = await fetch('/api');
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        setPortfolioLinks(data);
-      } catch (error) {
-        console.error('Error fetching portfolios:', error);
-      } finally {
-        setIsLoading(false);
+    let index = 0;
+
+    const interval = setInterval(() => {
+      if (index < fullText.length) {
+        setText((prev) => prev + fullText[index]);
+        index++;
+      } else {
+        clearInterval(interval);
       }
-    }
-    fetchPortfolios();
-  }, []);
+    }, 40); // Adjust speed here (lower = faster)
 
-  /////// 제거: 두 번째 useEffect 전체 ///////
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+    return () => clearInterval(interval);
+  }, [fullText]);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        <>
-          <motion.header className="w-full px-6 py-4 sticky top-0 bg-black/30 backdrop-blur-md shadow-md">
-            <div className="max-w-7xl mx-auto flex justify-between items-center">
-              <h1 className="text-xl font-bold text-pink-400 flex items-center">
-                <span role="img" aria-label="store" className="mr-2">
-                  🏪
-                </span>
-                My Portfolios
-              </h1>
-            </div>
-          </motion.header>
-
-          <main className="w-full max-w-screen mx-auto px-8 py-12">
-            <section className="text-center mb-8">
-              <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-                Jonathan Park
-              </h1>
-              {/* /////// 수정: motion.p 내용 변경 /////// */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    duration: 0.8,
-                    ease: 'easeOut',
-                  },
-                }}
-                className="mt-4 text-lg text-gray-300 p-6 rounded-lg 
-                  bg-gradient-to-r from-purple-500/10 to-pink-500/10 
-                  backdrop-blur-sm
-                  border border-purple-500/20
-                  shadow-lg shadow-purple-500/10"
-              >
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5, duration: 1 }}
-                  className="bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text"
-                >
-                  👋 Kia ora,
-                </motion.span>{' '}
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.8, duration: 1 }}
-                >
-                  Welcome to my portfolios! Here, I showcase my data analysis
-                  exaples, blending creativity, technicality , and beauty . I
-                  thrive on prioritizing accuracy and delivering insightful
-                  reports, while also capturing creativity and beauty to ensure
-                  my charts and reports not only inform but also engage. My goal
-                  is to create visuals that capture the audience’s attention and
-                  help them fully understand the story behind the data.
-                </motion.span>
-              </motion.p>
-            </section>
-            <motion.section
-              className="flex flex-wrap justify-start gap-6"
-              variants={containerVariants}
-              initial="hidden"
-              animate="show"
-            >
-              {portfolioLinks.map((link, index) => (
-                <motion.a
-                  key={index}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variants={itemVariants}
-                  className="w-64 p-6 rounded-lg bg-gradient-to-r from-purple-700 to-pink-600 hover:scale-105 transition-transform shadow-md text-center"
-                >
-                  <div className="text-3xl mb-4">{link.icon}</div>
-                  <div className="text-lg font-semibold">{link.title}</div>
-                </motion.a>
-              ))}
-            </motion.section>
-          </main>
-
-          <footer className="w-full py-6 text-center text-sm text-gray-500">
-            © {new Date().getFullYear()} Jonathan Park. All rights reserved.
-          </footer>
-        </>
-      )}
+    <div className="flex flex-col items-center justify-center min-h-screen p-6">
+      <div className="my-3 flex flex-col items-center gap-4">
+        <span className="text-5xl md:text-9xl hover:animate-pulse transition-colors">
+          🏪
+        </span>
+        <h1 className="text-2xl inline-block justify-center md:text-4xl font-semibold hover:animate-pulse">
+          Welcome!
+        </h1>
+        <h2 className="text-lg text-gray-500">{text}</h2>
+      </div>
+      <div className="flex flex-col items-center gap-3 w-full">
+        {/* 수정: /create-account 대신 /projects 경로로 이동 */}
+        <Link
+          href="/projects/1"
+          className="bg-blue-500 text-white w-full flex justify-center py-2 px-4 rounded hover:bg-blue-700 transition-all"
+        >
+          Start
+        </Link>
+        <div className="flex gap-2 text-sm text-gray-500">
+          <span>Click Start to begin the tour of my home page!</span>
+        </div>
+      </div>
     </div>
   );
 }
