@@ -108,8 +108,8 @@ export default function Projects() {
                   analysis examples. I believe in maintaining accurate and
                   correct way of data to prepare insightful reports. Along with
                   this, I also like to stay creative and not lose the beauty to
-                  ensure my charts and reports. My goal is to create visuals
-                  that capture the audience’s attention and help them fully
+                  my charts and reports. My goal is to create visuals that
+                  capture the audience’s attention and help them fully
                   understand the story behind the data.
                 </motion.span>
               </motion.p>
