@@ -7,10 +7,11 @@ export default function Home() {
   const [text, setText] = useState('');
 
   const fullText = `
-  Welcome to Jonathan Park's Introductory Page! Here you can take a quick tour of my personal projects and a little bit more about me.
-  Please click Start to begin the tour of my personal projects!
+    Welcome to Jonathan Park's Portfolio Page! 
+    Explore my Excel Reports, Dashboards, and learn more about me. 
+    If you like my projects, feel free to reach out or click "View All Projects" to see more. 
+    I’d love to hear from you! Click "Start" to begin the tour.
   `;
-
   useEffect(() => {
     let index = 0;
 
