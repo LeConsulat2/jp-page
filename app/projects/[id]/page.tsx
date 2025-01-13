@@ -71,7 +71,9 @@ export default function Projects() {
               </h1>
               <p className="mt-4 text-lg text-gray-300">
                 👋 Kia ora, Welcome to my portfolios where I showcase my journey
-                in data analysis and web development.
+                in data analysis and web development. I love being creative and
+                blend analysis and technicality with beautiful designs and bring
+                unique yet eye capturing experiences.
               </p>
             </section>
 
