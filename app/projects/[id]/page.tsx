@@ -1,141 +1,102 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-export default function Projects({
-  params: { id },
-}: {
-  params: { id: string };
-}) {
-  // Optional: Use id for debugging or future use
-  console.log('Project ID:', id);
+interface PortfolioLink {
+  title: string;
+  url: string;
+  icon: string;
+}
 
-  const portfolioLinks = [
-    {
-      title: 'Excel Reports & Dashboards',
-      url: 'https://onedrive.live.com/?id=D35BD98C5FB12BF6%21s7096425c5f544c9e812641df5d5e7df0&cid=D35BD98C5FB12BF6',
-      icon: '📊',
+export default function Projects() {
+  const [portfolioLinks, setPortfolioLinks] = useState<PortfolioLink[]>([]);
+
+  useEffect(() => {
+    async function fetchPortfolios() {
+      try {
+        const response = await fetch('/api/');
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        setPortfolioLinks(data);
+      } catch (error) {
+        console.error('Error fetching portfolios:', error);
+      }
+    }
+    fetchPortfolios();
+  }, []);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2, // Domino effect timing
+      },
     },
-    {
-      title: 'Ronacorona Dashboards',
-      url: 'https://leconsulat2-ronacorona-dashboard-v2-main-bp7cp3.streamlit.app/',
-      icon: '📈',
-    },
-    {
-      title: 'Python-GPT',
-      url: 'https://leconsulat2-fullstack-gpt-home-yuvpqy.streamlit.app/',
-      icon: '🤖',
-    },
-    {
-      title: 'HTML&CSS Students Canvas Clone',
-      url: 'https://leconsulat2.github.io/canvas-clone/',
-      icon: '🎨',
-    },
-  ];
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black text-white">
-      <motion.header
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="backdrop-blur-sm bg-black/30 sticky top-0 z-50"
-      >
-        <div className="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <span className="text-2xl">🏪</span>
-            <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text">
-              My Portfolios
+    <div className="min-h-screen bg-gray-900 text-white">
+      {/* Header */}
+      <header className="w-full px-6 py-4 sticky top-0 bg-black/30 backdrop-blur-md shadow-md">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <h1 className="text-xl font-bold text-pink-400 flex items-center">
+            <span role="img" aria-label="store" className="mr-2">
+              🏪
             </span>
-          </div>
-          <nav className="hidden md:flex space-x-6">
-            {portfolioLinks.map((link, index) => (
-              <motion.a
-                key={index}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500/10 to-pink-500/10 
-                  hover:from-purple-500/20 hover:to-pink-500/20 backdrop-blur-sm transition-all"
-              >
-                <span className="mr-2">{link.icon}</span>
-                {link.title}
-              </motion.a>
-            ))}
-          </nav>
+            My Portfolios
+          </h1>
         </div>
-      </motion.header>
+      </header>
 
-      <main className="max-w-7xl mx-auto px-4 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="space-y-8"
+      {/* Main Content */}
+      <main className="w-full max-w-screen mx-auto px-8 py-12">
+        {/* Title Section */}
+        <section className="text-center mb-8">
+          <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+            Jonathan Park
+          </h1>
+          <p className="mt-4 text-lg text-gray-300">
+            👋 Kia ora, Welcome to my portfolios where I showcase my journey in
+            data analysis and web development.
+          </p>
+        </section>
+
+        {/* Portfolio Links with Domino Effect */}
+        <motion.section
+          className="flex flex-wrap justify-start gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
         >
-          <div className="text-center space-y-4">
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text">
-              Jonathan Park
-            </h1>
-            <div className="h-1 w-32 mx-auto bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"></div>
-          </div>
-
-          <motion.div
-            className="grid gap-6 mt-12"
-            variants={{
-              hidden: { opacity: 0 },
-              show: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.2,
-                },
-              },
-            }}
-            initial="hidden"
-            animate="show"
-          >
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, x: -20 },
-                show: { opacity: 1, x: 0 },
-              }}
-              className="p-6 rounded-lg bg-gradient-to-r from-purple-500/10 to-pink-500/10 backdrop-blur-sm"
+          {portfolioLinks.map((link, index) => (
+            <motion.a
+              key={index}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              variants={itemVariants}
+              className="w-64 p-6 rounded-lg bg-gradient-to-r from-purple-700 to-pink-600 hover:scale-105 transition-transform shadow-md text-center"
             >
-              👋 Hi, I&apos;m @LeConsulat2 -- Jonathan -- Welcome to my
-              portfolio showcasing my journey in data analysis and web
-              development!
-            </motion.p>
-
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, x: 20 },
-                show: { opacity: 1, x: 0 },
-              }}
-              className="p-6 rounded-lg bg-gradient-to-r from-pink-500/10 to-purple-500/10 backdrop-blur-sm"
-            >
-              👀 I&apos;ve grown within my roles to execute complex data
-              analysis, gather business requirements, and develop innovative
-              solutions using modern web technologies and data visualization
-              tools.
-            </motion.p>
-
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, x: -20 },
-                show: { opacity: 1, x: 0 },
-              }}
-              className="p-6 rounded-lg bg-gradient-to-r from-purple-500/10 to-pink-500/10 backdrop-blur-sm"
-            >
-              🌱 I&apos;m currently expanding my expertise in data
-              visualizations, modern web frameworks like Next.js, and AI
-              integration while building practical applications that solve
-              real-world problems.
-            </motion.p>
-          </motion.div>
-        </motion.div>
+              <div className="text-3xl mb-4">{link.icon}</div>
+              <div className="text-lg font-semibold">{link.title}</div>
+            </motion.a>
+          ))}
+        </motion.section>
       </main>
+
+      {/* Footer */}
+      <footer className="w-full py-6 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} Jonathan Park. All rights reserved.
+      </footer>
     </div>
   );
 }
