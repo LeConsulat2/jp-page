@@ -28,6 +28,12 @@ export async function GET() {
       icon: '🌍',
     },
     {
+      title:
+        'SQL Project- Students Timetable Clashes Normalisation & my thought process',
+      url: 'https://www.notion.so/SQL-Project-Students-Database-Normalisations-17a0e5ce0cfb808bafdce37376fad8f4?pvs=4',
+      icon: '💻',
+    },
+    {
       title: 'View All Projects including HTML & CSS works',
       url: 'https://jp-personal.my.canva.site/',
       icon: '🎨',
