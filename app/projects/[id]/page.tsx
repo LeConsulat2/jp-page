@@ -69,12 +69,41 @@ export default function Projects() {
               <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                 Jonathan Park
               </h1>
-              <p className="mt-4 text-lg text-gray-300">
-                👋 Kia ora, Welcome to my portfolios where I showcase my journey
-                in data analysis and web development. I love being creative and
-                blend analysis and technicality with beautiful designs and bring
-                unique yet eye capturing experiences.
-              </p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.8,
+                    ease: 'easeOut',
+                  },
+                }}
+                className="mt-4 text-lg text-gray-300 p-6 rounded-lg 
+                  bg-gradient-to-r from-purple-500/10 to-pink-500/10 
+                  backdrop-blur-sm
+                  border border-purple-500/20
+                  shadow-lg shadow-purple-500/10"
+              >
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 1 }}
+                  className="bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text"
+                >
+                  👋 Kia ora,
+                </motion.span>{' '}
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.8, duration: 1 }}
+                >
+                  Welcome to my portfolios where I showcase my journey in data
+                  analysis and web development. I love being creative and blend
+                  analysis and technicality with beautiful designs and bring
+                  unique yet eye capturing experiences.
+                </motion.span>
+              </motion.p>
             </section>
 
             <motion.section
