@@ -10,7 +10,7 @@ export async function GET() {
     {
       title:
         'SQL Project- Students Timetable Clashes Normalisation & my thought process',
-      url: 'https://sweet-chill-fed.notion.site/SQL-17b0e5ce0cfb80349290dabd38cf678b',
+      url: 'https://sweet-chill-fed.notion.site/SQL-Project-Students-Clashes-Database-Normalisations-17a0e5ce0cfb808bafdce37376fad8f4',
       icon: '💻',
     },
     {
