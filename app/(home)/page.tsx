@@ -12,6 +12,7 @@ export default function Home() {
     If you like my projects, feel free to reach out or click "View All Projects" to see more. 
     I’d love to hear from you! Click "Start" to begin the tour.
   `;
+
   useEffect(() => {
     let index = 0;
 
@@ -38,16 +39,17 @@ export default function Home() {
         </h1>
         <h2 className="text-lg text-gray-500">{text}</h2>
       </div>
-      <div className="flex flex-col items-center gap-3 w-full">
-        {/* 수정: /create-account 대신 /projects 경로로 이동 */}
+      <div className="flex flex-col items-center gap-6 w-full">
         <Link
           href="/projects/1"
-          className="bg-blue-500 text-white w-full flex justify-center py-2 px-4 rounded hover:bg-blue-700 transition-all"
+          className="primary-btn max-w-md w-full flex justify-center py-3 px-6"
         >
           Start
         </Link>
-        <div className="flex gap-2 text-sm text-gray-500">
-          <span>Click Start to begin the tour of my home page!</span>
+        <div className="text-center text-sm text-gray-400">
+          <span className="block">
+            Click <strong>Start</strong> to begin the tour of my home page!
+          </span>
         </div>
       </div>
     </div>
