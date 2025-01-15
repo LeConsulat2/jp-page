@@ -7,10 +7,12 @@ export default function Home() {
   const [text, setText] = useState('');
 
   const fullText = `
-    Welcome to Jonathan Park's Portfolio Page! 
-    Explore my Excel Reports, web development (HTML & CSS), and My Thought Processes written in Notion. 
-    If you like my projects, feel free to reach out or click "View All Projects" to see more. 
-    I’d love to hear from you! Click "Start" to begin the tour.
+    Welcome to Jonathan Park's Portfolio!
+    Dive into my work, featuring dynamic Excel reports, web development projects (HTML, CSS & JS), and my insights and thought processes curated in Notion.
+    Explore, connect, and discover more of my projects.
+    I’d love to hear from you—feel free to reach out anytime!
+    Click "Start" to begin your journey.
+
   `;
 
   useEffect(() => {
