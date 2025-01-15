@@ -42,12 +42,13 @@ export async function GET() {
       icon: '🎨',
     },
     {
-      title: 'Freelance Translation + My Thought Process - Notion',
+      title:
+        'Freelance Translation & Prompts used + My Thought Process - Notion',
       url: 'https://sweet-chill-fed.notion.site/Translation-Project-Method-and-Prompts-Used-17c0e5ce0cfb804095ade5e65d1bda8a',
       icon: '💡',
     },
     {
-      title: 'Webscraping & Prompts for Analysis - Notion',
+      title: 'Webscraping Python & Prompts used for Analysis - Notion',
       url: 'https://sweet-chill-fed.notion.site/Webscraping-and-Prompts-17c0e5ce0cfb80068d0afac535d51203',
       icon: '💡',
     },
@@ -55,7 +56,7 @@ export async function GET() {
       title:
         'SQL - Students Timetable Clashes Normalisation & my thought process - Notion',
       url: 'https://sweet-chill-fed.notion.site/SQL-Project-Students-Clashes-Database-Normalisations-17a0e5ce0cfb808bafdce37376fad8f4',
-      icon: '💻',
+      icon: '💡',
     },
   ];
 
