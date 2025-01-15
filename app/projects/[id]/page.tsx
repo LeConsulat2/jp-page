@@ -9,12 +9,9 @@ interface PortfolioLink {
   icon: string;
 }
 
-/////// 제거: interface ProjectsProps와 fullText 관련 코드 ///////
 export default function Projects() {
-  // fullText props 제거
   const [isLoading, setIsLoading] = useState(true);
   const [portfolioLinks, setPortfolioLinks] = useState<PortfolioLink[]>([]);
-  /////// 제거: text state와 useEffect ///////
 
   useEffect(() => {
     async function fetchPortfolios() {
@@ -34,8 +31,6 @@ export default function Projects() {
     }
     fetchPortfolios();
   }, []);
-
-  /////// 제거: 두 번째 useEffect 전체 ///////
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -74,7 +69,6 @@ export default function Projects() {
               <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                 Jonathan Park
               </h1>
-              {/* /////// 수정: motion.p 내용 변경 /////// */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{
@@ -115,7 +109,7 @@ export default function Projects() {
               </motion.p>
             </section>
             <motion.section
-              className="flex flex-wrap justify-start gap-6"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-items-center"
               variants={containerVariants}
               initial="hidden"
               animate="show"
@@ -127,7 +121,7 @@ export default function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   variants={itemVariants}
-                  className="w-64 p-6 rounded-lg bg-gradient-to-r from-purple-700 to-pink-600 hover:scale-105 transition-transform shadow-md text-center"
+                  className="w-full max-w-xs p-6 rounded-lg bg-gradient-to-r from-purple-700 to-pink-600 hover:scale-105 transition-transform shadow-md text-center"
                 >
                   <div className="text-3xl mb-4">{link.icon}</div>
                   <div className="text-lg font-semibold">{link.title}</div>
