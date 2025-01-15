@@ -65,15 +65,16 @@ export default function Projects() {
             {/* Left: Jonathan Park */}
             <h1 className="text-2xl md:text-4xl font-bold text-pink-400">
               Jonathan Park
-            </h1>{' '}
-            ///// Jonathan Park 왼쪽 정렬
+            </h1>
+            {/* Jonathan Park 왼쪽 정렬*/}
+
             {/* Right: Introduction */}
             <p className="text-sm md:text-lg text-gray-300 max-w-3xl text-right">
               Kia ora, Welcome again to my portfolios! Here, I showcase my data
               analysis examples. I believe in maintaining accuracy and
               creativity in my reports to ensure insightful results.
-            </p>{' '}
-            ///// 소개 문구 오른쪽 정렬 및 같은 줄 배치
+            </p>
+            {/* 소개 문구 오른쪽 정렬 및 같은 줄 배치 */}
           </motion.header>
 
           {/* Portfolio Section */}
