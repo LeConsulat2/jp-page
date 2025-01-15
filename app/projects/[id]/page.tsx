@@ -17,7 +17,7 @@ export default function Projects() {
     async function fetchPortfolios() {
       try {
         setIsLoading(true);
-        const response = await fetch('/api');
+        const response = await fetch('/api'); // API 호출
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -26,7 +26,7 @@ export default function Projects() {
       } catch (error) {
         console.error('Error fetching portfolios:', error);
       } finally {
-        setIsLoading(false);
+        setIsLoading(false); // 로딩 완료
       }
     }
     fetchPortfolios();
@@ -50,66 +50,36 @@ export default function Projects() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {isLoading ? (
-        <div>Loading...</div>
+        <div className="flex justify-center items-center min-h-screen">
+          Loading...
+        </div>
       ) : (
         <>
-          <motion.header className="w-full px-6 py-4 sticky top-0 bg-black/30 backdrop-blur-md shadow-md">
-            <div className="max-w-7xl mx-auto flex justify-between items-center">
-              <h1 className="text-xl font-bold text-pink-400 flex items-center">
-                <span role="img" aria-label="store" className="mr-2">
-                  🏪
-                </span>
-                My Portfolios
-              </h1>
-            </div>
+          {/* Header Section */}
+          <motion.header
+            className="w-full px-6 py-4 sticky top-0 bg-black/30 backdrop-blur-md shadow-md flex justify-between items-center" ///// 헤더 레이아웃 수정
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Left: Jonathan Park */}
+            <h1 className="text-2xl md:text-4xl font-bold text-pink-400">
+              Jonathan Park
+            </h1>{' '}
+            ///// Jonathan Park 왼쪽 정렬
+            {/* Right: Introduction */}
+            <p className="text-sm md:text-lg text-gray-300 max-w-3xl text-right">
+              Kia ora, Welcome again to my portfolios! Here, I showcase my data
+              analysis examples. I believe in maintaining accuracy and
+              creativity in my reports to ensure insightful results.
+            </p>{' '}
+            ///// 소개 문구 오른쪽 정렬 및 같은 줄 배치
           </motion.header>
 
-          <main className="w-full max-w-screen mx-auto px-8 py-12">
-            <section className="text-center mb-8">
-              <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-                Jonathan Park
-              </h1>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    duration: 0.8,
-                    ease: 'easeOut',
-                  },
-                }}
-                className="mt-4 text-lg text-gray-300 p-6 rounded-lg 
-                  bg-gradient-to-r from-purple-500/10 to-pink-500/10 
-                  backdrop-blur-sm
-                  border border-purple-500/20
-                  shadow-lg shadow-purple-500/10"
-              >
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5, duration: 1 }}
-                  className="bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text"
-                >
-                  👋 Kia ora,
-                </motion.span>{' '}
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.8, duration: 1 }}
-                >
-                  Welcome again to my portfolios! Here, I showcase my data
-                  analysis examples. I believe in maintaining accurate and
-                  correct way of data to prepare insightful reports. Along with
-                  this, I also like to stay creative and not lose the beauty to
-                  my charts and reports. My goal is to create visuals that
-                  capture the audience’s attention and help them fully
-                  understand the story behind the data.
-                </motion.span>
-              </motion.p>
-            </section>
+          {/* Portfolio Section */}
+          <main className="w-full max-w-7xl mx-auto px-8 py-12">
             <motion.section
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-items-center"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-items-center overflow-y-scroll h-[60vh]" ///// 포트폴리오 섹션 스크롤 가능하게 수정
               variants={containerVariants}
               initial="hidden"
               animate="show"
@@ -130,6 +100,7 @@ export default function Projects() {
             </motion.section>
           </main>
 
+          {/* Footer */}
           <footer className="w-full py-6 text-center text-sm text-gray-500">
             © {new Date().getFullYear()} Jonathan Park. All rights reserved.
           </footer>
