@@ -8,7 +8,7 @@ export default function Home() {
 
   const fullText = `
     Welcome to Jonathan Park's Portfolio Page! 
-    Explore my Excel Reports, Dashboards, and learn more about me. 
+    Explore my Excel Reports, web development (HTML & CSS), and My Thought Processes written in Notion. 
     If you like my projects, feel free to reach out or click "View All Projects" to see more. 
     I’d love to hear from you! Click "Start" to begin the tour.
   `;
