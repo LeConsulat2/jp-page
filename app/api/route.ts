@@ -39,6 +39,16 @@ export async function GET() {
       url: 'https://jp-personal.my.canva.site/',
       icon: '🎨',
     },
+    {
+      title: 'Freelance Translation + My Thought Process',
+      url: 'https://sweet-chill-fed.notion.site/Translation-Project-Method-and-Prompts-Used-17c0e5ce0cfb804095ade5e65d1bda8a',
+      icon: '💡',
+    },
+    {
+      title: 'Webscraping & Prompts for Analysis',
+      url: 'https://sweet-chill-fed.notion.site/Webscraping-and-Prompts-17c0e5ce0cfb80068d0afac535d51203',
+      icon: '💡',
+    },
   ];
 
   return NextResponse.json(portfolioLinks);
