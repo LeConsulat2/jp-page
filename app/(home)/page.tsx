@@ -37,7 +37,7 @@ export default function Home() {
         <h1 className="text-2xl inline-block justify-center md:text-4xl font-semibold hover:animate-pulse">
           Welcome!
         </h1>
-        <h2 className="text-lg text-gray-500">{text}</h2>
+        <h2 className="text-lg text-gray-500 text-center max-w-md">{text}</h2>
       </div>
       <div className="flex flex-col items-center gap-6 w-full">
         <Link
