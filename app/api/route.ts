@@ -35,8 +35,14 @@ export async function GET() {
     },
 
     {
-      title: 'View All Projects including HTML & CSS works',
-      url: 'https://jp-personal.my.canva.site/',
+      title:
+        'Income Calculator created for financial advisors for quick assistance',
+      url: 'https://leconsulat2.github.io/average-calculator/',
+      icon: '🎨',
+    },
+    {
+      title: "Kakao Clone: Korea's most popular messaging app visualised",
+      url: 'https://leconsulat2.github.io/kakaotalk_clone_final/',
       icon: '🎨',
     },
     {
