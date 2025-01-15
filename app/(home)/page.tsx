@@ -39,7 +39,7 @@ export default function Home() {
         </h1>
         <h2 className="text-lg text-gray-500 text-center max-w-md">{text}</h2>
       </div>
-      <div className="flex flex-col items-center gap-6 w-full max-w-md">
+      <div className="flex flex-col items-center gap-6 w-full max-w-80">
         <Link
           href="/projects/1"
           className="primary-btn max-w-md w-full flex justify-center py-3 px-6"
