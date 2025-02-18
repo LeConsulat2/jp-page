@@ -3,6 +3,16 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   const portfolioLinks = [
     {
+      title: 'Global Employee Metrics & Performances- Excel',
+      url: 'https://onedrive.live.com/personal/d35bd98c5fb12bf6/_layouts/15/Doc.aspx?resid=D35BD98C5FB12BF6!s2c7e4b5207e84b858d4453821b77fea3&cid=d35bd98c5fb12bf6&migratedtospo=true&app=Excel',
+      icon: '🌍',
+    },
+    {
+      title: 'Global Employee Metrics & Performances - Powerpoint',
+      url: 'https://onedrive.live.com/personal/d35bd98c5fb12bf6/_layouts/15/Doc.aspx?resid=D35BD98C5FB12BF6!s8ebe20f711f0467d9daa71b1be6198a3&cid=d35bd98c5fb12bf6&migratedtospo=true&app=PowerPoint',
+      icon: '🌍',
+    },
+    {
       title: 'M&A Trends Report (2018-2022)- Excel',
       url: 'https://onedrive.live.com/personal/d35bd98c5fb12bf6/_layouts/15/Doc.aspx?resid=D35BD98C5FB12BF6!s3d4d2dca8a9b4fdfa0c5f2f8ea5ebea0&cid=d35bd98c5fb12bf6&migratedtospo=true&app=Excel',
       icon: '📊',
@@ -11,6 +21,11 @@ export async function GET() {
     {
       title: 'Finance Dashboard (MyBank)- Excel',
       url: 'https://onedrive.live.com/personal/d35bd98c5fb12bf6/_layouts/15/Doc.aspx?resid=D35BD98C5FB12BF6!sc35c4a88d75b4e9481173edf9774f3e3&cid=d35bd98c5fb12bf6&migratedtospo=true&app=Excel',
+      icon: '💹',
+    },
+    {
+      title: 'Finance Dashboard (MyBank)- Powerpoint',
+      url: 'https://onedrive.live.com/personal/d35bd98c5fb12bf6/_layouts/15/Doc.aspx?resid=D35BD98C5FB12BF6!s210a5c4eb4c04d1a97edb2bd4ea20fc8&cid=d35bd98c5fb12bf6&migratedtospo=true&app=PowerPoint',
       icon: '💹',
     },
     {
@@ -24,12 +39,6 @@ export async function GET() {
       url: 'https://onedrive.live.com/personal/d35bd98c5fb12bf6/_layouts/15/Doc.aspx?resid=D35BD98C5FB12BF6!s62bf99fed6844ff98b62d91f76bc6706&cid=d35bd98c5fb12bf6&migratedtospo=true&app=Excel',
       icon: '📈',
     },
-    {
-      title: 'Global Employee Metrics & Performances- Excel',
-      url: 'https://onedrive.live.com/personal/d35bd98c5fb12bf6/_layouts/15/Doc.aspx?resid=D35BD98C5FB12BF6!s2c7e4b5207e84b858d4453821b77fea3&cid=d35bd98c5fb12bf6&migratedtospo=true&app=Excel',
-      icon: '🌍',
-    },
-
     {
       title:
         'Calculator created for financial advisors for quick assistance (HTML, CSS & JS)',
