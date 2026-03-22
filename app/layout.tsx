@@ -21,10 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
-      <body
-        className={`${inter.className} bg-neutral-900 text-white max-w-screen-2xl mx-auto`}
-      >
+    <html lang="en" className={cn("dark font-sans", geist.variable)}>
+      <body className={cn(inter.className, "bg-background text-foreground max-w-screen-2xl mx-auto")}>
         {children}
       </body>
     </html>
