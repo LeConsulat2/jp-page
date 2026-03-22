@@ -212,7 +212,7 @@ export default function Home() {
             </div>
 
             {/* Controls */}
-            <div className="-mt-[120px] flex items-center justify-center gap-6">
+            <div className="relative z-20 -mt-[120px] flex items-center justify-center gap-6">
               <Button
                 variant="ghost"
                 size="icon"
