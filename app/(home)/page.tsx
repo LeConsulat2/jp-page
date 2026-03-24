@@ -47,8 +47,9 @@ export default function Home() {
       .catch(() => setIsLoading(false));
   }, []);
 
-  const prev = () => setActiveIndex((a) => Math.max(0, a - 1));
-  const next = () => setActiveIndex((a) => Math.min(portfolioLinks.length - 1, a + 1));
+  const total = portfolioLinks.length;
+  const prev = () => setActiveIndex((a) => (a - 1 + total) % total);
+  const next = () => setActiveIndex((a) => (a + 1) % total);
 
   return (
     <div className="relative min-h-screen overflow-x-hidden">
@@ -163,19 +164,19 @@ export default function Home() {
               className="relative flex w-full items-center justify-center"
               style={{ perspective: 1200, minHeight: '60vh' }}
             >
-              {portfolioLinks.map((link, index) => {
-                const offset = index - activeIndex;
-                const abs = Math.abs(offset);
-                if (abs > 2) return null;
-                const isActive = offset === 0;
+              {total > 0 && [-2, -1, 0, 1, 2].map((slot) => {
+                const index = (activeIndex + slot + total) % total;
+                const link = portfolioLinks[index];
+                const abs = Math.abs(slot);
+                const isActive = slot === 0;
 
                 return (
                   <motion.div
-                    key={index}
+                    key={`slot-${slot}`}
                     className="absolute top-0"
                     animate={{
-                      x: offset * 260,
-                      rotateY: offset * -36,
+                      x: slot * 260,
+                      rotateY: slot * -36,
                       scale: 1 - abs * 0.13,
                       opacity: abs === 0 ? 1 : abs === 1 ? 0.55 : 0.2,
                       zIndex: 10 - abs,
@@ -190,8 +191,8 @@ export default function Home() {
                       if (info.offset.x > 80) prev();
                     }}
                     onClick={() => {
-                      if (offset === 1) { next(); return; }
-                      if (offset === -1) { prev(); return; }
+                      if (slot === 1) { next(); return; }
+                      if (slot === -1) { prev(); return; }
                       if (isActive) setSelectedIndex(index);
                     }}
                   >
@@ -208,7 +209,7 @@ export default function Home() {
                             alt={link.title}
                             fill
                             sizes="(max-width: 768px) 100vw, 220px"
-                            priority={index < 3}
+                            priority={abs < 2}
                             className="object-cover opacity-75"
                           />
                         ) : (
@@ -242,7 +243,6 @@ export default function Home() {
                 variant="ghost"
                 size="icon"
                 onClick={prev}
-                disabled={activeIndex === 0}
                 className="rounded-full"
               >
                 <ChevronLeftIcon />
@@ -267,7 +267,6 @@ export default function Home() {
                 variant="ghost"
                 size="icon"
                 onClick={next}
-                disabled={activeIndex === portfolioLinks.length - 1}
                 className="rounded-full"
               >
                 <ChevronRightIcon />
@@ -275,7 +274,7 @@ export default function Home() {
             </div>
 
             <p className="mt-4 text-center text-xs text-muted-foreground/40">
-              {activeIndex + 1} of {portfolioLinks.length} — drag or use arrows
+              {activeIndex + 1} of {total} — drag or use arrows
             </p>
           </>
         )}
