@@ -110,7 +110,7 @@ const AntigravityInner: React.FC<AntigravityProps> = ({
       destY = Math.cos(time * 0.2) * (v.height / 4); 
     }
 
-    const smoothFactor = 0.02; // Very smooth follow on virtual mouse
+    const smoothFactor = 0.30; // Very smooth follow on virtual mouse
     virtualMouse.current.x += (destX - virtualMouse.current.x) * smoothFactor;
     virtualMouse.current.y += (destY - virtualMouse.current.y) * smoothFactor;
 
