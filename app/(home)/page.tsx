@@ -57,20 +57,21 @@ export default function Home() {
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 opacity-40">
           <Antigravity 
-        count={110} 
+        count={120} 
+        opacity={0.5}
         particleSize={1.1} 
-        waveSpeed={0.2} 
-        lerpSpeed={0.02} 
+        waveSpeed={0.5} 
+        lerpSpeed={0.05} 
         color="#60A5FA" 
         autoAnimate={true}
-        pulseSpeed={1.5}
+        pulseSpeed={1.2}
         particleShape="sphere"
         rotationSpeed={0.02}
         // These are still at defaults ↓
         waveAmplitude={0.6}      // default is 1.5 — too choppy
         particleVariance={0.4}   // default is 1.5 — too much size chaos
-        magnetRadius={18}        // default is 11 — larger = softer ring transition
-        fieldStrength={4}        // default is 10 — softer spread between particles
+        magnetRadius={20}        // default is 11 — larger = softer ring transition
+        fieldStrength={2}        // default is 10 — softer spread between particles
       />
         </div>
         <div className="pointer-events-none absolute top-0 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-blue-600/5 blur-[140px]" />

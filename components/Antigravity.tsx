@@ -18,10 +18,12 @@ interface AntigravityProps {
   pulseSpeed?: number;
   particleShape?: 'capsule' | 'sphere' | 'box' | 'tetrahedron';
   fieldStrength?: number;
+  opacity?: number;
 }
 
 const AntigravityInner: React.FC<AntigravityProps> = ({
-  count = 200,
+  count = 150,
+  opacity = 1,
   magnetRadius = 11,
   ringRadius = 10,
   waveSpeed = 0.5,
@@ -192,7 +194,7 @@ const AntigravityInner: React.FC<AntigravityProps> = ({
       {particleShape === 'sphere' && <sphereGeometry args={[0.2, 16, 16]} />}
       {particleShape === 'box' && <boxGeometry args={[0.3, 0.3, 0.3]} />}
       {particleShape === 'tetrahedron' && <tetrahedronGeometry args={[0.3]} />}
-      <meshBasicMaterial color={color} />
+      <meshBasicMaterial color={color} transparent opacity={opacity} />
     </instancedMesh>
   );
 };
