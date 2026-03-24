@@ -21,7 +21,7 @@ interface PortfolioLink {
   description: string;
 }
 
-const SKILLS = ['Product', 'Operations', 'Excel', 'Python', 'TypeScript', 'SQL', 'Premiere Pro', 'Illustrator'] as const;
+const SKILLS = ['Product', 'Operations', 'Excel', 'Photoshop', 'Illustrator', 'Premiere Pro', 'Python', 'TypeScript'] as const;
 
 export default function Home() {
   const [portfolioLinks, setPortfolioLinks] = useState<PortfolioLink[]>([]);
