@@ -208,6 +208,8 @@ export default function Home() {
                             src={link.image}
                             alt={link.title}
                             fill
+                            sizes="(max-width: 768px) 100vw, 220px"
+                            priority={index < 3}
                             className="object-cover opacity-75"
                           />
                         ) : (
@@ -323,6 +325,7 @@ export default function Home() {
                         src={selected.image}
                         alt=""
                         fill
+                        sizes="100vw"
                         className="object-cover opacity-40 blur-xl"
                       />
                       {/* Foreground image */}
@@ -330,6 +333,7 @@ export default function Home() {
                         src={selected.image}
                         alt={selected.title}
                         fill
+                        sizes="(max-width: 768px) 100vw, 800px"
                         className="object-contain drop-shadow-2xl z-10 p-2"
                         priority
                       />
