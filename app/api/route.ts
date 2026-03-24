@@ -100,17 +100,17 @@ export async function GET() {
     },
     {
       title: "My Designs - showing the understanding of usages and design principles",
-      url: "https://www.behance.net/jonathanpark1",
+      url: "https://github.com/LeConsulat2/jp-page/blob/master/public/images/MY%20DESIGN.png",
       icon: "🎨",
-      image: null,
+      image: "/images/MY DESIGN.png",
       description:
         'A collection of my design work demonstrating my understanding of design principles and their applications in various projects.',
     },
     {
       title: "My Designs 2 - showing the understanding of usages and design principles",
-      url: "https://www.behance.net/jonathanpark1",
+      url: "https://github.com/LeConsulat2/jp-page/blob/master/public/images/MY%20DESIGN-2.png",
       icon: "🎨",
-      image: null,
+      image: "/images/MY DESIGN-2.png",
       description:
         'A collection of my design work demonstrating my understanding of design principles and their applications in various projects.',
     }
