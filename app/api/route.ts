@@ -98,6 +98,22 @@ export async function GET() {
       description:
         'Pixel-accurate front-end clone of KakaoTalk\'s chat interface, built with vanilla HTML and CSS to practise UI layout and styling.',
     },
+    {
+      title: "My Designs - showing the understanding of usages and design principles",
+      url: "https://www.behance.net/jonathanpark1",
+      icon: "🎨",
+      image: null,
+      description:
+        'A collection of my design work demonstrating my understanding of design principles and their applications in various projects.',
+    },
+    {
+      title: "My Designs 2 - showing the understanding of usages and design principles",
+      url: "https://www.behance.net/jonathanpark1",
+      icon: "🎨",
+      image: null,
+      description:
+        'A collection of my design work demonstrating my understanding of design principles and their applications in various projects.',
+    }
   ];
 
   return NextResponse.json(portfolioLinks);
