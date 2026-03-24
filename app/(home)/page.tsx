@@ -12,7 +12,7 @@ import { Separator } from '@/ui/separator';
 import { Skeleton } from '@/ui/skeleton';
 import { AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
-import Antigravity from '@/components/Antigravity';
+import { Particles } from '@/ui/particles';
 
 interface PortfolioLink {
   title: string;
@@ -53,26 +53,19 @@ export default function Home() {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
 
-      {/* Ambient glow & Antigravity background */}
+      {/* Ambient glow & Particles background */}
       <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 opacity-40">
-          <Antigravity 
-        count={120} 
-        opacity={0.5}
-        particleSize={1.1} 
-        waveSpeed={0.5} 
-        lerpSpeed={0.05} 
-        color="#60A5FA" 
-        autoAnimate={true}
-        pulseSpeed={1.2}
-        particleShape="sphere"
-        rotationSpeed={0.02}
-        // These are still at defaults ↓
-        waveAmplitude={0.6}      // default is 1.5 — too choppy
-        particleVariance={0.4}   // default is 1.5 — too much size chaos
-        magnetRadius={20}        // default is 11 — larger = softer ring transition
-        fieldStrength={2}        // default is 10 — softer spread between particles
-      />
+        <div className="absolute inset-0">
+          <Particles
+            className="absolute inset-0 z-0"
+            quantity={180}
+            staticity={80}
+            ease={85}
+            size={1.0}
+            color="#60A5FA"
+            vy={0.08}
+           
+          />
         </div>
         <div className="pointer-events-none absolute top-0 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-blue-600/5 blur-[140px]" />
         <div className="pointer-events-none absolute right-0 top-1/2 h-[400px] w-[500px] rounded-full bg-indigo-700/5 blur-[120px]" />
