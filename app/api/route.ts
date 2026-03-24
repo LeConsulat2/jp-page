@@ -54,7 +54,7 @@ export async function GET() {
       title: "Korea's most popular messenger — visual clone (HTML, CSS)",
       url: 'https://leconsulat2.github.io/kakaotalk_clone_final/',
       icon: '🎨',
-      image: null,
+      image: '/images/kakao.png',
       description:
         'Pixel-accurate front-end clone of KakaoTalk\'s chat interface, built with vanilla HTML and CSS to practise UI layout and styling.',
     },
