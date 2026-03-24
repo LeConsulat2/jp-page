@@ -3,6 +3,22 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   const portfolioLinks = [
     {
+      title: "My Designs - showing the understanding of usages and design principles",
+      url: "https://github.com/LeConsulat2/jp-page/blob/master/public/images/MY%20DESIGN.png",
+      icon: "🎨",
+      image: "/images/MY DESIGN.png",
+      description:
+        'A collection of my design work demonstrating my understanding of design principles and their applications in various projects.',
+    },
+    {
+      title: "My Designs 2 - showing the understanding of usages and design principles",
+      url: "https://github.com/LeConsulat2/jp-page/blob/master/public/images/MY%20DESIGN-2.png",
+      icon: "🎨",
+      image: "/images/MY DESIGN-2.png",
+      description:
+        'A collection of my design work demonstrating my understanding of design principles and their applications in various projects.',
+    },
+    {
       title: 'Global Employee Metrics & Performances - Excel',
       url: 'https://onedrive.live.com/personal/d35bd98c5fb12bf6/_layouts/15/Doc.aspx?resid=D35BD98C5FB12BF6!s2c7e4b5207e84b858d4453821b77fea3&cid=d35bd98c5fb12bf6&migratedtospo=true&app=Excel',
       icon: '🌍',
@@ -97,23 +113,8 @@ export async function GET() {
       image: null,
       description:
         'Pixel-accurate front-end clone of KakaoTalk\'s chat interface, built with vanilla HTML and CSS to practise UI layout and styling.',
-    },
-    {
-      title: "My Designs - showing the understanding of usages and design principles",
-      url: "https://github.com/LeConsulat2/jp-page/blob/master/public/images/MY%20DESIGN.png",
-      icon: "🎨",
-      image: "/images/MY DESIGN.png",
-      description:
-        'A collection of my design work demonstrating my understanding of design principles and their applications in various projects.',
-    },
-    {
-      title: "My Designs 2 - showing the understanding of usages and design principles",
-      url: "https://github.com/LeConsulat2/jp-page/blob/master/public/images/MY%20DESIGN-2.png",
-      icon: "🎨",
-      image: "/images/MY DESIGN-2.png",
-      description:
-        'A collection of my design work demonstrating my understanding of design principles and their applications in various projects.',
     }
+    
   ];
 
   return NextResponse.json(portfolioLinks);
