@@ -21,7 +21,7 @@ interface AntigravityProps {
 }
 
 const AntigravityInner: React.FC<AntigravityProps> = ({
-  count = 300,
+  count = 200,
   magnetRadius = 11,
   ringRadius = 10,
   waveSpeed = 0.5,
