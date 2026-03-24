@@ -43,6 +43,22 @@ export async function GET() {
         'Five-year analysis of mergers & acquisition activity, deal volume, sector breakdown, and valuation trends across global markets.',
     },
     {
+      title: 'Calculator for financial advisors — quick assistance (HTML, CSS & JS)',
+      url: 'https://leconsulat2.github.io/average-calculator/',
+      icon: '🎨',
+      image: null,
+      description:
+        'Lightweight browser-based calculator built for financial advisors to quickly run average-rate calculations without leaving their workflow.',
+    },
+    {
+      title: "Korea's most popular messenger — visual clone (HTML, CSS)",
+      url: 'https://leconsulat2.github.io/kakaotalk_clone_final/',
+      icon: '🎨',
+      image: null,
+      description:
+        'Pixel-accurate front-end clone of KakaoTalk\'s chat interface, built with vanilla HTML and CSS to practise UI layout and styling.',
+    },
+    {
       title: 'Finance Dashboard (MyBank) - Excel',
       url: 'https://onedrive.live.com/personal/d35bd98c5fb12bf6/_layouts/15/Doc.aspx?resid=D35BD98C5FB12BF6!sc35c4a88d75b4e9481173edf9774f3e3&cid=d35bd98c5fb12bf6&migratedtospo=true&app=Excel',
       icon: '💹',
@@ -97,23 +113,7 @@ export async function GET() {
       image: null,
       description:
         'Step-by-step SQL database normalisation project resolving student timetable clashes, including ER diagrams and query breakdowns.',
-    },
-    {
-      title: 'Calculator for financial advisors — quick assistance (HTML, CSS & JS)',
-      url: 'https://leconsulat2.github.io/average-calculator/',
-      icon: '🎨',
-      image: null,
-      description:
-        'Lightweight browser-based calculator built for financial advisors to quickly run average-rate calculations without leaving their workflow.',
-    },
-    {
-      title: "Korea's most popular messenger — visual clone (HTML, CSS)",
-      url: 'https://leconsulat2.github.io/kakaotalk_clone_final/',
-      icon: '🎨',
-      image: null,
-      description:
-        'Pixel-accurate front-end clone of KakaoTalk\'s chat interface, built with vanilla HTML and CSS to practise UI layout and styling.',
-    }
+    }    
     
   ];
 
