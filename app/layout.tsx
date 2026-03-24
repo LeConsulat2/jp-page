@@ -21,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("dark font-sans", geist.variable)}>
-      <body className={cn(inter.className, "bg-background text-foreground max-w-screen-2xl mx-auto")}>
+    <html lang="en" className={cn("dark font-sans", geist.variable)} suppressHydrationWarning>
+      <body className={cn(inter.className, "bg-background text-foreground max-w-screen-2xl mx-auto")} suppressHydrationWarning>
         {children}
       </body>
     </html>
