@@ -12,6 +12,7 @@ import { Separator } from '@/ui/separator';
 import { Skeleton } from '@/ui/skeleton';
 import { AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
+import Antigravity from '@/components/Antigravity';
 
 interface PortfolioLink {
   title: string;
@@ -52,10 +53,23 @@ export default function Home() {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
 
-      {/* Ambient glow — purely decorative */}
-      <div className="pointer-events-none fixed inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-blue-600/5 blur-[140px]" />
-        <div className="absolute right-0 top-1/2 h-[400px] w-[500px] rounded-full bg-indigo-700/5 blur-[120px]" />
+      {/* Ambient glow & Antigravity background */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 opacity-40">
+          <Antigravity 
+            count={120} 
+            particleSize={1.2} 
+            waveSpeed={0.2} 
+            lerpSpeed={0.02} 
+            color="#60A5FA" 
+            autoAnimate={true}
+            pulseSpeed={1.5}
+            particleShape="sphere"
+            rotationSpeed={0.02}
+          />
+        </div>
+        <div className="pointer-events-none absolute top-0 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-blue-600/5 blur-[140px]" />
+        <div className="pointer-events-none absolute right-0 top-1/2 h-[400px] w-[500px] rounded-full bg-indigo-700/5 blur-[120px]" />
       </div>
 
       {/* ── Header ── */}
@@ -113,14 +127,14 @@ export default function Home() {
             <span className="text-blue-300">product-minded generalist</span> who operates across
             the full stack of a business — from{' '}
             <span className="text-indigo-300">operations and service design</span> to{' '}
-            <span className="text-blue-300">data, automation, and front-end build</span>. I see
+            <span className="text-blue-300">creative and digital delivery</span>. I see
             systems quickly, find the friction, and fix both the process and the presentation.
           </p>
           <p className="leading-relaxed text-muted-foreground">
-            Advanced Excel and Python for analysis and automation. TypeScript and SQL for
-            building and querying. Premiere Pro, Photoshop, and Illustrator for when the work
-            needs to look as good as it functions. Based in New Zealand — scroll through the
-            work below and click any card to preview.
+            Because I speak the language of both design (Adobe) and development (HTML, CSS,JS),
+            I excel at coordinating projects, managing stakeholder requests, and ensuring the final
+            work looks as good as it functions. Scroll through the work below and click any card
+            to preview.
           </p>
         </BlurFade>
       </section>
