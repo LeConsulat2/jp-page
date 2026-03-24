@@ -27,7 +27,17 @@ export default function Home() {
   const [portfolioLinks, setPortfolioLinks] = useState<PortfolioLink[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [selected, setSelected] = useState<PortfolioLink | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const selected = selectedIndex !== null ? portfolioLinks[selectedIndex] : null;
+
+  const prevModal = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedIndex !== null && selectedIndex > 0) setSelectedIndex(selectedIndex - 1);
+  };
+  const nextModal = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedIndex !== null && selectedIndex < portfolioLinks.length - 1) setSelectedIndex(selectedIndex + 1);
+  };
 
   useEffect(() => {
     fetch('/api')
@@ -169,7 +179,7 @@ export default function Home() {
                     onClick={() => {
                       if (offset === 1) { next(); return; }
                       if (offset === -1) { prev(); return; }
-                      if (isActive) setSelected(link);
+                      if (isActive) setSelectedIndex(index);
                     }}
                   >
                     <Card
@@ -272,7 +282,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm"
-              onClick={() => setSelected(null)}
+              onClick={() => setSelectedIndex(null)}
             />
 
             {/* Modal */}
@@ -291,26 +301,61 @@ export default function Home() {
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Screenshot */}
-                <div className="relative aspect-video w-full bg-muted">
+                <div className="relative flex h-[50vh] min-h-[300px] w-full items-center justify-center bg-muted/30 overflow-hidden">
                   {selected.image ? (
-                    <Image
-                      src={selected.image}
-                      alt={selected.title}
-                      fill
-                      className="object-cover"
-                      priority
-                    />
+                    <>
+                      {/* Blurred background */}
+                      <Image
+                        src={selected.image}
+                        alt=""
+                        fill
+                        className="object-cover opacity-40 blur-xl"
+                      />
+                      {/* Foreground image */}
+                      <Image
+                        src={selected.image}
+                        alt={selected.title}
+                        fill
+                        className="object-contain drop-shadow-2xl z-10 p-2"
+                        priority
+                      />
+                    </>
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-blue-950 to-indigo-900 text-7xl">
+                    <div className="flex z-10 h-full w-full items-center justify-center bg-gradient-to-br from-blue-950 to-indigo-900 text-7xl">
                       {selected.icon}
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-card/70 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/70 via-transparent to-transparent pointer-events-none z-10" />
+                  
+                  {/* Left Button */}
+                  {selectedIndex !== null && selectedIndex > 0 && (
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={prevModal}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 text-white hover:bg-black/80 z-20 backdrop-blur-sm shadow-sm"
+                    >
+                      <ChevronLeftIcon className="h-6 w-6" />
+                    </Button>
+                  )}
+                  
+                  {/* Right Button */}
+                  {selectedIndex !== null && selectedIndex < portfolioLinks.length - 1 && (
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={nextModal}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 text-white hover:bg-black/80 z-20 backdrop-blur-sm shadow-sm"
+                    >
+                      <ChevronRightIcon className="h-6 w-6" />
+                    </Button>
+                  )}
+
                   <Button
                     variant="ghost"
                     size="icon-sm"
-                    onClick={() => setSelected(null)}
-                    className="absolute right-3 top-3 rounded-full bg-black/50 text-white hover:bg-black/80"
+                    onClick={() => setSelectedIndex(null)}
+                    className="absolute right-3 top-3 rounded-full bg-black/50 text-white hover:bg-black/80 z-20"
                   >
                     ✕
                   </Button>
@@ -327,17 +372,23 @@ export default function Home() {
                   <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
                     {selected.description}
                   </p>
-                  <div className="flex gap-3">
+                  <div className="mt-2 flex flex-col-reverse sm:flex-row gap-3">
+                    <Button 
+                      variant="outline" 
+                      onClick={() => setSelectedIndex(null)}
+                      className="w-full sm:w-28 font-medium shadow-sm transition-all hover:bg-muted"
+                    >
+                      Close
+                    </Button>
                     <Button
                       asChild
-                      className="flex-1 border-0 bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:opacity-90"
+                      className="w-full sm:flex-1 border-0 bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/20 transition-all hover:opacity-90 hover:shadow-lg hover:shadow-blue-500/30"
                     >
                       <a href={selected.url} target="_blank" rel="noopener noreferrer">
-                        View Project <ExternalLinkIcon className="ml-1.5 size-3.5" />
+                        <span className="flex items-center justify-center gap-2 font-medium tracking-wide">
+                          View Project <ExternalLinkIcon className="h-4 w-4" />
+                        </span>
                       </a>
-                    </Button>
-                    <Button variant="outline" onClick={() => setSelected(null)}>
-                      Close
                     </Button>
                   </div>
                 </div>
