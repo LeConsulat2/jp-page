@@ -161,9 +161,10 @@ export default function Home() {
           <>
             {/* 3D stage — no BlurFade wrapper so absolute cards aren't offset */}
             <div
-              className="relative flex w-full items-center justify-center"
-              style={{ perspective: 1200, minHeight: '60vh' }}
+              className="relative flex w-full min-h-[60vh] items-center justify-center"
+              style={{ perspective: 1200 }}
             >
+              <AnimatePresence initial={false}>
               {total > 0 && [-2, -1, 0, 1, 2].map((slot) => {
                 const index = (activeIndex + slot + total) % total;
                 const link = portfolioLinks[index];
@@ -172,8 +173,14 @@ export default function Home() {
 
                 return (
                   <motion.div
-                    key={`slot-${slot}`}
+                    key={index}
                     className="absolute top-0"
+                    initial={{
+                      x: (slot > 0 ? 1 : -1) * 780,
+                      rotateY: (slot > 0 ? 1 : -1) * -108,
+                      scale: 0.5,
+                      opacity: 0,
+                    }}
                     animate={{
                       x: slot * 260,
                       rotateY: slot * -36,
@@ -181,7 +188,13 @@ export default function Home() {
                       opacity: abs === 0 ? 1 : abs === 1 ? 0.55 : 0.2,
                       zIndex: 10 - abs,
                     }}
-                    transition={{ type: 'spring', stiffness: 290, damping: 30 }}
+                    exit={{
+                      x: (slot > 0 ? 1 : -1) * 780,
+                      rotateY: (slot > 0 ? 1 : -1) * -108,
+                      scale: 0.5,
+                      opacity: 0,
+                    }}
+                    transition={{ type: 'spring', stiffness: 180, damping: 26 }}
                     style={{ transformStyle: 'preserve-3d' }}
                     drag={isActive ? 'x' : false}
                     dragConstraints={{ left: 0, right: 0 }}
@@ -235,6 +248,7 @@ export default function Home() {
                   </motion.div>
                 );
               })}
+              </AnimatePresence>
             </div>
 
             {/* Controls */}
@@ -306,12 +320,10 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.92, y: 32 }}
               transition={{ type: 'spring', stiffness: 320, damping: 28 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4"
-              style={{ pointerEvents: 'none' }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
             >
               <div
-                className="w-full max-w-2xl overflow-hidden rounded-2xl border border-border bg-card shadow-2xl"
-                style={{ pointerEvents: 'auto' }}
+                className="w-full max-w-2xl overflow-hidden rounded-2xl border border-border bg-card shadow-2xl pointer-events-auto"
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Screenshot */}
